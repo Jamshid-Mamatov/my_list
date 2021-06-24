@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from tinydb import TinyDB
+db=TinyDB('database.json')
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]

@@ -36,5 +36,19 @@ def addTask(request):
     # print(task_name)
     return JsonResponse(data)
 
-
+def delTask(request):
+    task_name=request.GET.get('task')
+    data={}
+    if task_name!=None:
+        db.remove(Tasks.task==task_name)
+        lst=db.all()
+        print(lst)
+        
+        for ind,val in enumerate(lst):
+            
+            data[str(ind+1)+"-task"]=val
+        
+        
+            
+    return JsonResponse(data)
 
